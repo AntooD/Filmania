@@ -63,7 +63,7 @@ class UserModel
         $this->email = $email;
     }
 
-    public function setPrivilege($droit)
+    public function setDroit($droit)
     {
         $this->droit = $droit;
     }

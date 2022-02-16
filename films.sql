@@ -139,14 +139,14 @@ CREATE TABLE `user` (
   `id` int NOT NULL,
   `email` varchar(255) NOT NULL,
   `pwd` varchar(255) NOT NULL,
-  `privilege` int NOT NULL
+  `droit` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `pwd`, `privilege`) VALUES
+INSERT INTO `user` (`id`, `email`, `pwd`, `droit`) VALUES
 (11, 'admin@gmail.com', '$2y$10$ViAkXxXgA4lXyn35P1RUD.8JJfpLBFBLZvktI1gkzTo5AvMcNZM06', 1),
 (13, 'user@gmail.com', '$2y$10$/BjME5UErZYx9vX0iS57t.99vsQZRhgOaQndCAykdSayqbMoJ1E6K', 0);
 
