@@ -1,0 +1,196 @@
+body {
+  background-color: #BFAC97;
+  margin: 0;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body * {
+  color: rgb(255, 255, 255);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+body *:focus {
+  outline: none ;
+}
+
+body * li {
+  list-style: none;
+}
+
+body * a {
+  text-decoration: none;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+header a {
+  background-color: #5f3a42;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 35px;
+ 
+}
+
+
+main img {
+  width: 200px;
+}
+
+main .div-flex{
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  gap:30px;
+  justify-content: space-evenly;
+}
+
+.div-flex > div {
+  width:40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.div-flex > div > a{
+  text-align: center;
+}
+
+main form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+main form label {
+  font-family: 900;
+  font-size: 25px;
+  color: #000000;
+}
+
+main form label::first-letter {
+  text-transform: capitalize;
+}
+
+main form input {
+  font-size: 20px;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+table td, table th {
+  border-bottom: solid 3px rgb(0, 0, 0);
+  padding: 6px;
+}
+
+table th {
+  background-color: #5f3a42;
+  ;
+  
+}
+
+table .delete a, table .info a, table .vote a {
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+table .delete {
+  background-color: #a75346;
+}
+
+table .info {
+  background-color: #5f3a42;
+}
+
+table .vote {
+  background-color: #989572;
+}
+
+form input {
+  -webkit-appearance: none;
+  margin: 0;
+  border: solid 3px #ffffff;
+  background: #BFAC97;
+}
+
+form input[type=number] {
+  -moz-appearance: textfield;
+  margin: 0;
+  border: solid 3px #ffffff;
+  background: #BFAC97;
+}
+
+form input:disabled {
+  background: #BFAC97;
+  border: solid 3px white
+}
+
+
+
+button, .btn {
+  background-color: #5f3a42;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+
+select {
+  background-color: #5f3a42;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.admin-input input {
+  border: solid 3px white ;
+}
+
+.forbidden {
+  color: #000000;
+  font-size: 23px;
+  padding: 20px;
+  border: solid 3px white;
+}
+/*# sourceMappingURL=index.css.map */

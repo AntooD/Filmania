@@ -1,0 +1,14 @@
+Projet Final PHP DEHU Antonin G4S3
+
+Compte Admin : 
+
+adresse email :
+admin@gmail.com
+mdp:
+Antonin1
+
+Compte utilisateur : 
+adresse email :
+user@gmail.com
+mdp:
+Antonin2
