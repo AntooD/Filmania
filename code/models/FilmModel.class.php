@@ -86,7 +86,7 @@ class FilmModel
 
     public function setAnnee($annee)
     {
-        if (is_string($annee)) {
+        if (is_numeric($annee)) {
             $this->annee = $annee;
         }
     }

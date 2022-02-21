@@ -15,7 +15,6 @@ class ActeurManager
 
     $q->bindValue(':nom', $acteur->nom());
     $q->bindValue(':prenom', $acteur->prenom());
-
     $q->execute();
   }
 
