@@ -4,7 +4,8 @@ class ActeurModel
 {
     protected $id,
         $nom,
-        $prenom;
+        $prenom,
+        $path;
 
 
     public function __construct(array $donnees)
@@ -39,9 +40,21 @@ class ActeurModel
         return $this->prenom;
     }
 
+    public function path()
+    {
+        return $this->path;
+    }
+
     public function setNom($nom)
     {
         $this->nom = $nom;
+    }
+
+    public function setPath($path)
+    {
+        if (is_string($path)) {
+            $this->path = $path;
+        }
     }
 
     public function setId($id)

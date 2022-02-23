@@ -15,22 +15,45 @@ class ActeurController {
      * @return string
      * @access private 
      */
-    public function create(){
+    public function create()
+    {
         $user = null;
-        if(isset($_SESSION["loggedUser"])){
+        if (isset($_SESSION["loggedUser"])) {
             $user = unserialize($_SESSION["loggedUser"]);
         }
-        if($user && $user->droit() > 0){
 
-            if(isset($_POST["nom"]) && isset($_POST["prenom"])){
-                $acteur = new ActeurModel($_POST);
-                $this->manager->add($acteur);
-                return $this->view->display_create_result();
-            }else{
-                return $this->view->display_create();
-            }
+        if (!($user) && $user->droit() != 1) {
+            return "Mauvais privilèges";
         }
+
+        if (!(isset($_POST["nom"]) && isset($_POST["prenom"]))) {
+            return $this->view->display_create();
+        }
+        
+        
+        
+        if (isset($_FILES["userfile"]) && $_FILES["userfile"]["name"] !== "") {
+            
+            $file_name = rand() . $_FILES["userfile"]['name'];
+            $dir = 'upload/' . $file_name; 
+
+            
+
+            move_uploaded_file($_FILES['userfile']['tmp_name'], $dir);
+
+            $_POST["path"] = $dir;
+        } else {
+            $_POST["path"] = "upload/acteur.png";
+            echo "Taille de fichier trop importante";
+        }
+
+        $acteur = new ActeurModel($_POST);
+
+        $this->manager->add($acteur);
+
+        return $this->view->display_create_result();
     }
+
 
     /**
      * ajouter un acteur à un film
@@ -48,12 +71,14 @@ class ActeurController {
             $acteurs = $this->manager->getListWhereNotFilm($idFilm);
 
             return $this->view->display_add_actor($acteurs, $idFilm);
+        
 
         }elseif($user && $user->droit() > 0 && isset($_GET["idfilm"]) && isset($_GET["newactor"])){
 
             $this->manager->addActorToFilm(intval($_GET["idfilm"]), intval($_GET["newactor"]));
 
             return $this->view->display_add_actor_result(intval($_GET["idfilm"]));
+        
         }else{
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }

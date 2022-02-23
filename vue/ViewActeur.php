@@ -10,25 +10,36 @@ class ViewActeur {
      * @access public
      */
     public function display_update($films, $acteur, $user){
+        
+        $img = "./upload/acteur.png";
+        $path = $acteur->path();
+        if ($path != "") {
+            $img = './' . $path;
+        }
 
-        if($acteur){
-            $input_class = "user-input";
-            $disabled = "disabled";
-  
-            if($user && $user->droit() > 0){
-                $input_class = "admin-input";
-                $disabled = "";
-            }
+        if (!$acteur) return "";
 
+        $input_class = "user-input";
+        $disabled = "disabled";
+
+        if ($user && $user->droit() > 0) {
+            $input_class = "admin-input";
+            $disabled = "";
+        }
             $result = '<main>
                 <form class='. $input_class .' method="post" action="">
+
+                <img src="' . $img . '" alt="photo de profil" />
+
                 <label for="nom">nom</label>
                 <input '. $disabled .' name="nom" id="nom" type="text" value="'.$acteur->nom().'" required />
 
                 <label for="prenom">prénom</label>
                 <input '. $disabled .' name="prenom" id="annee" type="texte" value="'.$acteur->prenom().'" required />
 
-                <input '. $disabled .' name="id" type="hidden" value="'.$acteur->id().'" />';
+                <input '. $disabled .' name="id" type="hidden" value="'.$acteur->id().'" />
+
+                <input '. $disabled .' name="path" type="hidden" value="'.$acteur->path().'" />';
                 
                 
             if ($user && $user->droit() > 0){
@@ -44,7 +55,7 @@ class ViewActeur {
             return $result;
 
         }
-    }
+    
 
     /**
      * affiche les films auquels un acteur a participé
@@ -128,12 +139,16 @@ class ViewActeur {
      */
     public function display_create(){
         $result = '<main>
-            <form method="post" class="admin-input" action="create-acteur">
+            <form method="post" class="admin-input" enctype="multipart/form-data" action="create-acteur">
             <label for="nom">nom</label>
             <input name="nom" id="nom" type="text" required />
 
             <label for="prenom">prénom</label>
             <input id="prenom" name="prenom" type="text" required />
+
+            <label for="file">Photo </label>
+            <input type="hidden" id="file" name="MAX_FILE_SIZE" value="1073741824" />
+            <input type="file" name="userfile" />
             
             <button type="submit">Ajouter l\'acteur</button>
          </form>';

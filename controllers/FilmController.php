@@ -98,6 +98,8 @@ class FilmController
         }
 
         if (isset($_FILES["userfile"]) && $_FILES["userfile"]["name"] !== "") {
+
+            
             $file_name = rand() . $_FILES["userfile"]['name'];
             $dir = 'upload/' . $file_name; 
 

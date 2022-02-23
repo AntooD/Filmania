@@ -32,16 +32,16 @@ class ViewFilm {
 
                 <img src="' . $img . '" alt="jacket film" />
 
-                <label for="nom">nom</label>
+                <label for="nom">Nom</label>
                 <input ' . $disabled . ' name="nom" id="nom" type="text" value="' . $film->nom() . '" required />
 
-                <label for="annee">annee</label>
+                <label for="annee">Année</label>
                 <input ' . $disabled . '  name="annee" id="annee" type="number" value="' . $film->annee() . '" required />
 
-                <label for="vote">nombre de votant</label>
+                <label for="vote">Nombre de votant</label>
                 <input ' . $disabled . ' name="vote" id="vote" type="number" value="' . $film->vote() . '" required />
 
-                <label for="score">score</label>
+                <label for="score">Score</label>
                 <input ' . $disabled . ' name="score" id="score" type="number" value="' . $film->score() . '" required />
 
                 <input ' . $disabled . ' name="id" type="hidden" value="' . $film->id() . '" />
@@ -115,21 +115,21 @@ class ViewFilm {
     {
         $result = '<main>
         <form method="post" class="admin-input" enctype="multipart/form-data" action="create-film">
-            <label for="nom">nom</label>
+            <label for="nom">Nom</label>
             <input name="nom" id="nom" type="text" required />
 
-            <label for="annee">annee</label>
+            <label for="annee">Année</label>
             <input name="annee" id="annee" type="number" required />
             
 
-            <label for="vote">nombre de votant</label>
+            <label for="vote">Nombre de votant</label>
             <input name="vote" id="vote" type="number" required />
 
-            <label for="score">score</label>
+            <label for="score">Score</label>
             <input name="score" id="score" type="number" required />
 
-            <label for="file">image</label>
-            <input type="hidden" id="file" name="MAX_FILE_SIZE" value="1048576" />
+            <label for="file">Affiche du film</label>
+            <input type="hidden" id="file" name="MAX_FILE_SIZE" value="1073741824" />
             <input type="file" name="userfile" />
 
 
