@@ -147,7 +147,7 @@ class ViewActeur {
             <input id="prenom" name="prenom" type="text" required />
 
             <label for="file">Photo </label>
-            <input type="hidden" id="file" name="MAX_FILE_SIZE" value="1073741824" />
+            <input type="hidden" id="file" name="MAX_FILE_SIZE" value="4000000" />
             <input type="file" name="userfile" />
             
             <button type="submit">Ajouter l\'acteur</button>

@@ -129,7 +129,7 @@ class ViewFilm {
             <input name="score" id="score" type="number" required />
 
             <label for="file">Affiche du film</label>
-            <input type="hidden" id="file" name="MAX_FILE_SIZE" value="1073741824" />
+            <input type="hidden" id="file" name="MAX_FILE_SIZE" value="4000000" />
             <input type="file" name="userfile" />
 
 

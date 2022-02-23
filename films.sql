@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : db
--- Généré le : lun. 20 déc. 2021 à 21:13
--- Version du serveur :  8.0.21
--- Version de PHP : 7.4.8
+-- Hôte : 127.0.0.1
+-- Généré le : mer. 23 fév. 2022 à 21:48
+-- Version du serveur : 10.4.22-MariaDB
+-- Version de PHP : 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,22 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `acteur` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `nom` varchar(250) NOT NULL,
-  `prenom` varchar(250) NOT NULL
+  `prenom` varchar(250) NOT NULL,
+  `path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `acteur`
 --
 
-INSERT INTO `acteur` (`id`, `nom`, `prenom`) VALUES
-(1, 'Di Caprio', 'Leonardo'),
-(2, 'Winslet', 'Kate'),
-(3, 'Gibson', 'Mel'),
-(5, 'Depp', 'Johnny'),
-(6, 'Cumbeerbatch', 'Benedict'),
-(8, 'Swamp', 'Shrek');
+INSERT INTO `acteur` (`id`, `nom`, `prenom`, `path`) VALUES
+(1, 'Di Caprio', 'Leonardo', ''),
+(2, 'Winslet', 'Kate', ''),
+(3, 'Gibson', 'Mel', ''),
+(5, 'Depp', 'Johnny', ''),
+(6, 'Cumbeerbatch', 'Benedict', ''),
+(8, 'Swamp', 'Shrek', '');
 
 -- --------------------------------------------------------
 
@@ -52,9 +53,9 @@ INSERT INTO `acteur` (`id`, `nom`, `prenom`) VALUES
 --
 
 CREATE TABLE `casting` (
-  `id` int NOT NULL,
-  `idFilm` int NOT NULL,
-  `idActeur` int NOT NULL
+  `id` int(11) NOT NULL,
+  `idFilm` int(11) NOT NULL,
+  `idActeur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -72,11 +73,11 @@ INSERT INTO `casting` (`id`, `idFilm`, `idActeur`) VALUES
 --
 
 CREATE TABLE `film` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `annee` int NOT NULL,
+  `annee` int(11) NOT NULL,
   `score` float NOT NULL,
-  `vote` int NOT NULL,
+  `vote` int(11) NOT NULL,
   `path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -136,10 +137,10 @@ INSERT INTO `film` (`id`, `nom`, `annee`, `score`, `vote`, `path`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `pwd` varchar(255) NOT NULL,
-  `droit` int NOT NULL
+  `droit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -148,7 +149,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `pwd`, `droit`) VALUES
 (11, 'admin@gmail.com', '$2y$10$ViAkXxXgA4lXyn35P1RUD.8JJfpLBFBLZvktI1gkzTo5AvMcNZM06', 1),
-(13, 'user@gmail.com', '$2y$10$/BjME5UErZYx9vX0iS57t.99vsQZRhgOaQndCAykdSayqbMoJ1E6K', 0);
+(13, 'user@gmail.com', '$2y$10$/BjME5UErZYx9vX0iS57t.99vsQZRhgOaQndCAykdSayqbMoJ1E6K', 0),
+(14, 'dehu.antonin@gmail.com', '$2y$10$0xI0Au.mJ0Mp6UHz50kqW.vv.bG4Cv7YbglJyldZO5hKIoxaSkRNK', 0);
 
 -- --------------------------------------------------------
 
@@ -157,8 +159,8 @@ INSERT INTO `user` (`id`, `email`, `pwd`, `droit`) VALUES
 --
 
 CREATE TABLE `vote` (
-  `movie_id` int NOT NULL,
-  `user_id` int NOT NULL
+  `movie_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -205,25 +207,25 @@ ALTER TABLE `vote`
 -- AUTO_INCREMENT pour la table `acteur`
 --
 ALTER TABLE `acteur`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT pour la table `casting`
 --
 ALTER TABLE `casting`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT pour la table `film`
 --
 ALTER TABLE `film`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1653;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1657;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Contraintes pour les tables déchargées
