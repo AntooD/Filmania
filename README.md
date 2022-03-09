@@ -5,7 +5,7 @@
 Le site Filmania permet de visualiser une liste de films et une liste d’acteurs.  
 Il est possible de créer un compte et de s’identifier pour pouvoir voter pour un film  
 Le nombre de votes pour chaque film est comptabilisé, un vote augmente simplement la note du film de 1.  
-Avec un compte administrateur, il possible d’accéder à un formulaire permettant l’ajout de film et un formulaire permettant l’ajout d’acteur.  
+Avec un compte administrateur, il est possible d’accéder à un formulaire permettant l’ajout de film et un formulaire permettant l’ajout d’acteur.  
 Après avoir ajouté un acteur il est possible de l’associer à des films déjà présents dans la liste de films.  
 Un film est caractérisé par son titre, son année de diffusion, son nombre de vote, sa note et son affiche.  
 Un acteur est caractérisé par son nom et son prénom et sa photo de profil.  
